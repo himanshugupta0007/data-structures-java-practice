@@ -34,7 +34,7 @@ public class MaximumSubarray {
 	public static void main(String[] args) {
 
 		MaximumSubarray practice = new MaximumSubarray();
-		int[] nums = { -2, 1 };
+		int[] nums = { -2, 1,-4,5,1,4,6,-3};
 		System.out.println(practice.maxSubArrayUsingBruteForce(nums));
 		System.out.println(practice.maxSubArrayUsingBruteForceOptimized(nums));
 	}
