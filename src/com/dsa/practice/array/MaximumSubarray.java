@@ -41,7 +41,7 @@ public class MaximumSubarray {
 
 	/**
 	 * This is also brute force solution but with O(n) complexity
-	 * 
+	 * This is Kadane Algo - DP
 	 * @param nums
 	 * @return
 	 */
