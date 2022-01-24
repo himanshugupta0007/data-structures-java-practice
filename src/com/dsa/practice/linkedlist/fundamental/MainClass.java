@@ -30,5 +30,18 @@ public class MainClass {
 		slist.insertNode(12, 2);
 		slist.insertNode(13, 3);
 		slist.displaySingleLinkedList();
+		System.out.println();
+		slist.isNodePresent(12);
+		slist.isNodePresent(33);
+		slist.removeNode(0);
+		slist.displaySingleLinkedList();
+		slist.removeNode(110);
+		System.out.println();
+		slist.displaySingleLinkedList();
+		System.out.println();
+		slist.removeNode(2);
+		slist.displaySingleLinkedList();
+		slist.removeAllNodes();
+		slist.displaySingleLinkedList();
 	}
 }

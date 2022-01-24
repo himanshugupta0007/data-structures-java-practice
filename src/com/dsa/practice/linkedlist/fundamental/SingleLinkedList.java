@@ -3,6 +3,8 @@
  */
 package com.dsa.practice.linkedlist.fundamental;
 
+import java.util.Iterator;
+
 /**
  * This is our Single Link List class defined to create linked list
  * 
@@ -113,4 +115,91 @@ public class SingleLinkedList {
 		}
 	}
 
+	/**
+	 * This method traverse the Linked List and check if the value is present in the
+	 * linked list
+	 * 
+	 * @param nodeValue
+	 * @return
+	 */
+	public boolean isNodePresent(int nodeValue) {
+		Node tempNode = head;
+		for (int i = 0; i < size; i++) {
+			if (tempNode.value == nodeValue) {
+				System.out.println("NodeValue is Present at Location: " + i);
+				return true;
+			}
+			tempNode = tempNode.reference;
+		}
+
+		System.out.println("NodeValue is not present");
+		return false;
+	}
+
+	/**
+	 * This method removes the node for provided location
+	 * 
+	 * @param nodeValue
+	 * @param localtion
+	 */
+	public void removeNode(int location) {
+
+		if (head == null) {
+			System.out.println("List is empty");
+		} else if (location == 0) {
+			// if location is 0, set head to head next reference
+			head = head.reference;
+			size -= 1;
+			// if size if 0, means only one element is there in the list, set tail as null
+			if (size == 0) {
+				tail = null;
+			}
+		}
+		// to delete from tail
+		else if (location >= size) {
+			Node tempNode = head;
+			// get the reference of last node in the list
+			for (int i = 0; i < size - 1; i++) {
+				tempNode = tempNode.reference;
+			}
+			// if last reference is head, set head and tail as null
+			if (tempNode == head) {
+				head = tail = null;
+				size--;
+				System.out.println("Node is empty now");
+			}
+			// otherwise set tempNode reference to null and set tempNode as tail
+			tempNode.reference = null;
+			tail = tempNode;
+			size--;
+		} else {
+			// this is scenairo to delete from provided location
+			Node tempNode = head;
+			for (int i = 0; i < location - 1; i++) {
+				tempNode = tempNode.reference;
+			}
+
+			if (tempNode == head) {
+				tail = null;
+				size--;
+			} else {
+				// set the temopNode next reference to next to next node reference which breaks
+				// the reference of next node
+				tempNode.reference = tempNode.reference.reference;
+				size--;
+			}
+		}
+
+	}
+
+	/**
+	 * This method removes all the nodes from the list
+	 */
+	public void removeAllNodes() {
+		// set head and tail next reference to null which breaks the link from list
+		head = null;
+		tail = null;
+		size = 0;
+		System.out.println("All Nodes deleted successfully");
+	}
 }
